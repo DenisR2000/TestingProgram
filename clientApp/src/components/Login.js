@@ -68,7 +68,7 @@ function Login(){
                     <line class="pl__ball" stroke="url(#pl-grad2)" x1="100" y1="18" x2="100.01" y2="182" stroke-width="36" stroke-dasharray="1 165" stroke-linecap="round" />
                 </svg>
             </div>
-            <div className="login-box">
+            <main className="login-box">
                 <h2>Login</h2>
                 <form onSubmit={e => onSubmitLogin(e)}>
                     <div className="user-box">
@@ -94,7 +94,7 @@ function Login(){
                             </a>
                     </div>
                 </form>
-            </div>
+            </main>
         </>
     )  
 }

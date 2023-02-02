@@ -26,6 +26,11 @@ body {
     filter: blur(calc(var(--abs-offset) * 1rem));
     transition: all 0.3s ease-out;
 }
+.btn__container {
+    position: absolute;
+    left: 30%;
+    top: 100%;
+}
 .card {
     display: flex;
     flex-direction: column;

@@ -6,33 +6,48 @@ import $ from 'jquery'
 
 const MAX_VISIBILITY = 1;
 
-var answers = []
+var answers = new Object()
 
 function Card ({title, listAnsvers}) {
-    useEffect(() => {
-        console.log("Rerender");
-    }, [])
-
     function onChangeAnsver(e, answer) {
-        console.log("Change");
-        var item = { qestionId: answer.QestionId, answerName: answer.AnswerToQuestion }
-        console.log(item);
-        //setAnswers(item)
-        answers.forEach(element => {
-            if( element.qestionId !== answer.QestionId){
-                answers.push(item)
-            } else {
-            }
-        });
-        console.log(answers);
+        var id = answer.QestionId
+        answers[id] = answer.AnswerId
     } 
+
+    return(
+        <>
+        <div className='card'>
+            <h2 className='ttitle'>{title}</h2>
+            <div className='block-form__input'>
+                <div className='radiobuttons'> 
+                    {listAnsvers.map((answer, i) => {
+                        return(
+                            <>
+                                <div  className="readiobutton__item">
+                                    {answer.AnswerToQuestion}
+                                    <input onChange={e => onChangeAnsver(e, answer)} type="radio" value={answer.AnswerToQuestion}  name={answer.QestionId} />
+                                </div>
+                            </>
+                        )
+                    }) }
+                </div>
+            </div>
+        </div>
+        </>
+    )
+  }
+
+const Carousel = ({children}) => {
+
+    const [active, setActive] = useState(0);
+    const count = React.Children.count(children);
+    const { id } = useParams();
 
     async function onSubmit(e) {
         e.preventDefault()
-        alert('finish')
-        console.log(answers)
         var body = {
-            answers
+            answers,
+            testId: id
         }
         var _response = await fetch('https://localhost:44364/api/Testing/CheckAnswers', {
             method: "POST",
@@ -42,45 +57,14 @@ function Card ({title, listAnsvers}) {
             body: JSON.stringify(body) 
         })
         if(_response.ok === true) {
-
+            const data = await _response.json();
+            console.log("Ok result: ", data);
         }
     }
-
-
-
-    return(
-        <>
-        <div className='card'>
-            <h2 className='ttitle'>{title}</h2>
-            <form onSubmit={onSubmit}>
-                <div className='block-form__input'>
-                    <div className='radiobuttons'> 
-                        {listAnsvers.map((answer, i) => {
-                            return(
-                                <>
-                                    <div  className="readiobutton__item">
-                                        {answer.AnswerToQuestion}
-                                        <input onChange={e => onChangeAnsver(e, answer)} type="radio" value={answer.AnswerToQuestion}  name={answer.QestionId} />
-                                    </div>
-                                </>
-                            )
-                        }) }
-                    </div>
-                </div>
-                <button type='submit'>Finish</button>
-            </form>
-        </div>
-        </>
-    )
-  }
-
-const Carousel = ({children}) => {
-    const [active, setActive] = useState(0);
-    const count = React.Children.count(children);
     
     return (
       <div className='carousel'>
-        {active > 0 && <button className='nav left' onClick={() => setActive(i => i - 1)}>Prev</button>}
+        {/* {active > 0 && <button className='nav left' onClick={() => setActive(i => i - 1)}>Prev</button>} */}
         {React.Children.map(children, (child, i) => (
           <div className='card-container' style={{
               '--active': i === active ? 1 : 0,
@@ -94,6 +78,14 @@ const Carousel = ({children}) => {
             {child}
           </div>
         ))}
+        {active == count - 1 ? 
+            <div className='btn__container'>
+                <button onClick={e => onSubmit(e)} style={{posiotin: 'absolute'}} className="wave-btn" >
+                    <span className="wave-btn__text">Finish</span>
+                    <span className="wave-btn__waves"></span>
+                </button>
+            </div>
+        : ''}
         {active < count - 1 && <button style={{disabled: 'true'}} className='nav right' onClick={() => setActive(i => i + 1)}>Next</button>}
       </div>
     );
@@ -132,8 +124,8 @@ function PassingTest(props) {
     return(
         <>
             <Carousel>
-                {qestinos.map((qestin, i) => (
-                    <Card  title={qestin.QestionName} listAnsvers={qestin.Answers}/>
+                {qestinos.map((qestin, i, id) => (
+                    <Card  title={qestin.QestionName} listAnsvers={qestin.Answers} />
                 ))}
             </Carousel>
         </>

@@ -73,8 +73,21 @@ namespace TesttingServer.Controllers.APIControllers
         [HttpPost]
         public async Task<IActionResult> CheckAnswers(AnswersViewModel model)
         {
-
-            
+            Test test = await context.Tests.FirstOrDefaultAsync(x => x.TestId == model.TestId);
+            int correctAnswers = 0;
+            if(test != null)
+            {
+                foreach (KeyValuePair<int, int> item in model.Answers)
+                {
+                    Qestion qestion = test.Qestions.FirstOrDefault(x => x.QestionId == item.Key);
+                    Answer answer = qestion.Answers.FirstOrDefault(x => x.AnswerId == item.Value);
+                    if (answer.IsTrue == true)
+                    {
+                        correctAnswers++;
+                    }
+                }
+                return new OkObjectResult(correctAnswers);
+            }
             return new NotFoundResult();
         }
     }

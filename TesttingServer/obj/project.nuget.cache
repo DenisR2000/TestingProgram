@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JfXjFNnVmdKIEM6cOsk+qnvFVZZ0MSrMH3EMeZY2eZpR+mni7qWGh/zGl15abucemZL6llRxbONt8uw6UmoiJA==",
+  "dgSpecHash": "+G3bRdX5kVewjGvBw0GeVMQoYA7NUR4cotMJj6cqiMYmbniBStnY5gxpKE7ICl0rEKCByXQJo7VLP6QkJQPI9g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\denis\\source\\repos\\TesttingServer\\TesttingServer.csproj",
+  "projectFilePath": "C:\\Users\\denis\\Documents\\TestingProgram\\TesttingServer\\TesttingServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\denis\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.0\\microsoft.aspnetcore.authentication.jwtbearer.3.1.0.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.0\\microsoft.aspnetcore.cryptography.internal.3.1.0.nupkg.sha512",

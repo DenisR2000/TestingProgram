@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\denis\\source\\repos\\TesttingServer\\TesttingServer.csproj": {}
+    "C:\\Users\\denis\\Documents\\TestingProgram\\TesttingServer\\TesttingServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\denis\\source\\repos\\TesttingServer\\TesttingServer.csproj": {
+    "C:\\Users\\denis\\Documents\\TestingProgram\\TesttingServer\\TesttingServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\denis\\source\\repos\\TesttingServer\\TesttingServer.csproj",
+        "projectUniqueName": "C:\\Users\\denis\\Documents\\TestingProgram\\TesttingServer\\TesttingServer.csproj",
         "projectName": "TesttingServer",
-        "projectPath": "C:\\Users\\denis\\source\\repos\\TesttingServer\\TesttingServer.csproj",
+        "projectPath": "C:\\Users\\denis\\Documents\\TestingProgram\\TesttingServer\\TesttingServer.csproj",
         "packagesPath": "C:\\Users\\denis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\denis\\source\\repos\\TesttingServer\\obj\\",
+        "outputPath": "C:\\Users\\denis\\Documents\\TestingProgram\\TesttingServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

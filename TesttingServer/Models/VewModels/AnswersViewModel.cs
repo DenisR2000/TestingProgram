@@ -4,11 +4,7 @@ namespace TesttingServer.Models.VewModels
 {
     public class AnswersViewModel
     {
-         public HashSet<Answer> Answers { get; set; }
-    }
-    public class Answer 
-    { 
-        public int QestionId { get; set; }
-        public string AnswerName { get; set; }
+         public Dictionary<int, int> Answers { get; set; }
+        public int TestId { get; set; }
     }
 }
