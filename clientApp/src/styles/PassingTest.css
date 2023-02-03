@@ -29,15 +29,16 @@ body {
 .btn__container {
     position: absolute;
     left: 30%;
-    top: 100%;
+    top: 130%;
 }
 .card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     padding: 30px;
-    width: 460px;
-    min-height: 100%;
+    min-width: 460px;
+    width: auto;
+    min-height: 300px;
     height: auto;
     padding: 2rem;
     background-color: #000;
@@ -49,7 +50,7 @@ body {
 }
 .card h2 {
     text-align: center;
-    font-size: 2rem;
+    font-size: 22px;
     font-weight: bold;
     margin: 0 0 0.7em;
     color: #fff;
@@ -78,5 +79,72 @@ body {
 }
 .nav.right {
     right: 0;
-    transform: translateX(100%) translatey(-50%);
+    transform: translateX(100%) translatey(-100%);
+}
+.block-form__input {
+    margin-top: 100px;
+    margin-bottom: 8px;
+}
+.radiobuttons { }
+.readiobutton__item {
+    cursor: pointer;
+    position: relative;
+    padding: 0px 0px 0px 40px;
+    font-size: 17px;
+    font-weight: 300;
+    font-family: sans-serif;
+    color:  rgb(111, 114, 128);
+    margin-bottom: 30px;
+    line-height: 30px;
+    transition: all 0.3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+}
+.readiobutton__item.active {
+    color: #fff;
+}
+.readiobutton__item.active:after {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+}
+.readiobutton__item::before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 0px 4px rgba(90, 92, 211, 0.4);
+    box-shadow: 0px 6px rgba(90, 92, 211, 0.4);
+}
+.readiobutton__item:after {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 5px;
+    top: 5px;
+    background-color: #4973ff;
+    content: '';
+    border-radius: 50%;
+
+    transition: all 0.3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+}
+.readiobutton__item input {
+    display: none;
 }

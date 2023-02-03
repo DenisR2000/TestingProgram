@@ -19,9 +19,9 @@ function Login(){
     }
 
     async function onSubmitLogin(e) {
+        e.preventDefault()
         var loader = document.getElementById('loading-anim__container')
         loader.style.display = 'flex'
-        e.preventDefault()
         var userName = String(e.nativeEvent.srcElement[0].value)
         var password = String(e.nativeEvent.srcElement[1].value)
         var body = {
@@ -80,18 +80,17 @@ function Login(){
                         <label>Password</label>
                     </div>
                     <div className="user-box">
-                            <a href="#">
-                                <button type="submit">
-                                    Submit
-                                    <span>
-                                        <span></span>
-                                    </span>
+                        <a href="#">
+                            <button type="submit">
+                                Submit
+                                <span>
                                     <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </button>
-                               
-                            </a>
+                                </span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </a>
                     </div>
                 </form>
             </main>
